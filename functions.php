@@ -47,12 +47,22 @@ function sidebar(){
 };
 add_action( 'widgets_init', 'sidebar' );
 
-//Registrar menus
-function register_my_menus() {
+//Registrar menu izquierda
+function register_my_menusl() {
     register_nav_menus(
       array(
-        'menu-principal' => __( 'Menu Principal' )
+        'menu-izquierdo' => __( 'Menu Izquierdo' )
        )
     );
 }
-add_action( 'init', 'register_my_menus' );
+add_action( 'init', 'register_my_menusl' );
+
+//Registrar menu derecha
+function register_my_menusr() {
+    register_nav_menus(
+      array(
+        'menu-derecho' => __( 'Menu Derecho' )
+       )
+    );
+}
+add_action( 'init', 'register_my_menusr' );

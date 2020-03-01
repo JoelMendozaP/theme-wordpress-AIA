@@ -8,14 +8,14 @@
 </head>
 <body>
 <header>
-    <!--Navbar -->
-    <nav class="mb-1 navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="/">
-    <img src="<?php echo get_template_directory_uri()?>\assets\img\logo-blanco.png" height="70" class="d-inline-block align-top"
+    <!--Navbar scrolling-navbar fixed-top-->
+    <nav class="mb-1 navbar navbar-expand-lg navbar-dark bg-dark ">
+    <a class="navbar-brand d-block d-lg-none" href="/">
+    <img src="<?php echo get_template_directory_uri()?>\assets\img\logo-blanco.png" height="60" class="d-inline-block align-top"
       alt="logo">
     </a>
     <button 
-        class="navbar-toggler" 
+        class="navbar-toggler " 
         type="button" 
         data-toggle="collapse" 
         data-target="#navbarSupportedContent-333"
@@ -28,16 +28,33 @@
 
     <?php
         wp_nav_menu( array(
-            'theme_location'    => 'menu-principal',
+            'theme_location'    => 'menu-izquierdo',
             'depth'             => 2,
             'container'         => 'div',
-            'container_class'   => 'collapse navbar-collapse',
+            'container_class'   => 'collapse navbar-collapse justify-content-center',
             'container_id'      => 'navbarSupportedContent-333',
-            'menu_class'        => 'nav navbar-nav ml-auto',
+            'menu_class'        => 'nav navbar-nav text-uppercase',
+            'fallback_cb'       => 'WP_Bootstrap_Navwalker::fallback',
+            'walker'            => new WP_Bootstrap_Navwalker(),
+        ));
+    ?>
+    <a class="navbar-brand d-none d-lg-block" href="/">
+    <img src="<?php echo get_template_directory_uri()?>\assets\img\logo-blanco.png" height="60" class="d-inline-block align-top"
+      alt="logo">
+    </a>
+    <?php
+        wp_nav_menu( array(
+            'theme_location'    => 'menu-derecho',
+            'depth'             => 2,
+            'container'         => 'div',
+            'container_class'   => 'collapse navbar-collapse justify-content-center',
+            'container_id'      => 'navbarSupportedContent-333',
+            'menu_class'        => 'nav navbar-nav text-uppercase',
             'fallback_cb'       => 'WP_Bootstrap_Navwalker::fallback',
             'walker'            => new WP_Bootstrap_Navwalker(),
         ) );
     ?>
+
     </nav>
 <!--/.Navbar -->
 </header>
